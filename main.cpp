@@ -10,8 +10,11 @@ int main ( int argc, char* argv[] ) {
     return SimpleRegister::OK;
   }
 
-  shared_ptr<SimpleRegister> imgregister(new SimpleRegister());
-  imgregister->GetImages(string(argv[1]),string(argv[2]),string(argv[3]));
+  shared_ptr<SimpleRegister> imgregister(new SimpleRegister(string(argv[1])));
+  imgregister->GetImages(string(argv[2]),string(argv[3]));
+  imgregister->SetParameterMapFromFile(string(argv[4]));
+  imgregister->ExecuteRegister();  
+  imgregister->SetRegisteredImage(string(argv[5]));
 
   return SimpleRegister::OK;
 }
