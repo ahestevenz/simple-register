@@ -15,22 +15,26 @@ namespace ap {
     class SimpleRegister
     {
     public:
-      SimpleRegister();
-      void GetImages(string path, string fixed, string moving);
+      SimpleRegister(string project_path);
+      void GetImages(string fixed, string moving);
       void SetRegisteredImage(string registered_image);
+      void SetParameterMapFromFile(string parameter_map_file);
+      void ExecuteRegister();
       ~SimpleRegister();
 	
     private:
       shared_ptr<sitk::SimpleElastix> elastix;
-      shared_ptr<sitk::ImageFileReader> fixed_reader, moving_reader;
+      shared_ptr<sitk::ImageFileReader> fixedReader, movingReader;
+      shared_ptr<sitk::ImageFileWriter> registeredImageWriter;
+      string pathToImages;
       
     public:
       static const int OK=0000;
       static const int FAILED=0001;
       
     public:
-      sitk::Image GetFixedImage() const { return fixed_reader->Execute(); }
-      sitk::Image GetMovingImage() const { return moving_reader->Execute(); }
+      sitk::Image GetFixedImage() const { return fixedReader->Execute(); }
+      sitk::Image GetMovingImage() const { return movingReader->Execute(); }
     };
 }
 

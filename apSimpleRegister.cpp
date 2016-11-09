@@ -2,24 +2,38 @@
 
 using namespace ap;
 
-SimpleRegister::SimpleRegister()
+SimpleRegister::SimpleRegister(string project_path)
   :elastix(shared_ptr<sitk::SimpleElastix> (new sitk::SimpleElastix()))
-  ,fixed_reader(shared_ptr<sitk::ImageFileReader> (new sitk::ImageFileReader()))
-  ,moving_reader(shared_ptr<sitk::ImageFileReader> (new sitk::ImageFileReader()))	       
+  ,fixedReader(shared_ptr<sitk::ImageFileReader> (new sitk::ImageFileReader()))
+  ,movingReader(shared_ptr<sitk::ImageFileReader> (new sitk::ImageFileReader()))
+  ,registeredImageWriter(shared_ptr<sitk::ImageFileWriter> (new sitk::ImageFileWriter()))
+  ,pathToImages(project_path)
 {
 
 }
 
-void SimpleRegister::GetImages(string path, string fixed, string moving)
+void SimpleRegister::GetImages(string fixed, string moving)
 {
-  fixed_reader->SetFileName(path+"/"+fixed);
-  moving_reader->SetFileName(path+"/"+moving);  
-  elastix->SetMovingImage( moving_reader->Execute() );
-  elastix->SetFixedImage( fixed_reader->Execute() );  
+  fixedReader->SetFileName(pathToImages+"/"+fixed);
+  movingReader->SetFileName(pathToImages+"/"+moving);  
+  elastix->SetMovingImage( movingReader->Execute() );
+  elastix->SetFixedImage( fixedReader->Execute() );  
+}
+
+void SimpleRegister::SetParameterMapFromFile(string parameter_map_file)
+{
+  elastix->SetParameterMap(sitk::ReadParameterFile( string( parameter_map_file)));
+}
+
+void SimpleRegister::ExecuteRegister()
+{
+  elastix->Execute();
 }
 
 void SimpleRegister::SetRegisteredImage(string registered_image)
 {
+  registeredImageWriter->SetFileName( pathToImages+"/"+registered_image );
+  registeredImageWriter->Execute(elastix->GetResultImage());
   
 }
 SimpleRegister::~SimpleRegister()
