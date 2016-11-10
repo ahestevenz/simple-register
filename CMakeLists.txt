@@ -4,13 +4,13 @@ project(simpleregister)
 set(SimpleITK_DIR /opt/SimpleElastix/build/SimpleITK-build)
 set(ITK_DIR /opt/SimpleElastix/build/ITK-build)
 
-set(simpleregister_SRCS apSimpleRegister.cpp main.cpp)
+set(simpleregister_SRCS apSimpleRegister.cpp main.cpp utils/itkCommandLineArgumentParser.cxx)
 
 if( NOT SimpleITK_SOURCE_DIR )
   find_package( SimpleITK REQUIRED )
   include( ${SimpleITK_USE_FILE} )
 
-  # TODO: CMake refuses to properly configure the ITK_USE_FILE when 
+  # TODO: CMake refuses to properly configure the ITK_USE_FILE when
   # called in the SimpleITK_USE_FILE. Here we import ITK manually, but
   # really all dependencies should be resolved by the SimpleITK_USE_FILE.
   find_package( ITK REQUIRED )
@@ -30,3 +30,5 @@ endif()
 add_executable(simpleregister ${simpleregister_SRCS})
 target_link_libraries( simpleregister ${SimpleITK_LIBRARIES} )
 install(TARGETS simpleregister RUNTIME DESTINATION bin)
+
+add_subdirectory(utils)

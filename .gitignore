@@ -1,7 +1,7 @@
 # build directory
 build
 
-#KDevelop project files
+# KDevelop project files
 .kdev4
 
 # Compiled Object files
