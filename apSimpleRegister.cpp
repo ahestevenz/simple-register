@@ -63,7 +63,7 @@ void SimpleRegister::SetParameterMapFromTemplate(string parameter_map_template)
             map_template="bspline";
 	    break;
         default:
-	    std::cerr<<"Template no recognized"<<endl;
+	    std::cerr<<"Template not recognized"<<endl;
             break;
     }    
  
