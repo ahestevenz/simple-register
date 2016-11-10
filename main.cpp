@@ -1,5 +1,6 @@
 #include "apSimpleRegister.hpp"
 #include "utils/itkCommandLineArgumentParser.hpp"
+#include <QCommandLineParser>
 
 using namespace ap;
 
