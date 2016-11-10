@@ -1,5 +1,5 @@
 #include "apSimpleRegister.hpp"
-#include "utils/itkCommandLineArgumentParser.h"
+#include "utils/itkCommandLineArgumentParser.hpp"
 
 using namespace ap;
 

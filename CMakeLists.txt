@@ -4,7 +4,7 @@ project(simpleregister)
 set(SimpleITK_DIR /opt/SimpleElastix/build/SimpleITK-build)
 set(ITK_DIR /opt/SimpleElastix/build/ITK-build)
 
-set(simpleregister_SRCS apSimpleRegister.cpp main.cpp utils/itkCommandLineArgumentParser.cxx)
+set(simpleregister_SRCS apSimpleRegister.cpp main.cpp utils/itkCommandLineArgumentParser.cpp)
 
 if( NOT SimpleITK_SOURCE_DIR )
   find_package( SimpleITK REQUIRED )
