@@ -16,7 +16,7 @@
  *
  *=========================================================================*/
 
-#include "itkCommandLineArgumentParser.h"
+#include "itkCommandLineArgumentParser.hpp"
 
 #include <limits>
 
