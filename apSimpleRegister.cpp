@@ -42,7 +42,7 @@ vector<unsigned int> SimpleRegister::GetImageSize( sitk::Image image)
 
 void SimpleRegister::SetParameterMapFromFile(string parameter_map_file)
 {
-  elastix->SetParameterMap(sitk::ReadParameterFile( string( parameter_map_file)));
+  elastix->SetParameterMap(sitk::ReadParameterFile(parameter_map_file));
 }
 
 void SimpleRegister::SetParameterMapFromTemplate(string parameter_map_template)
@@ -81,10 +81,21 @@ void SimpleRegister::SetRegisteredImage(string registered_image)
   registeredImageWriter->Execute(elastix->GetResultImage());  
 }
 
-void SimpleRegister::ShowImage()
+void SimpleRegister::ShowFixedImage(string window_title)
 {
-  //TODO: Complete this method
+  sitk::Show(GetFixedImage(),window_title);
 }
+
+void SimpleRegister::ShowMovingImage(string window_title)
+{
+  sitk::Show(GetMovingImage(),window_title);
+}
+
+void SimpleRegister::ShowRegisteredImage(string window_title)
+{
+  sitk::Show(GetRegisteredImage(),window_title);
+}
+
 
 void SimpleRegister::GetTransformationMatrix()
 {

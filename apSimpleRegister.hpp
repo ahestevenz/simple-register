@@ -2,6 +2,7 @@
 #define APSIMPLEREGISTER_H
 
 #include <SimpleITK.h>
+#include <opencv2/opencv.hpp>
 #include <boost/shared_ptr.hpp>
 #include <iostream>
 #include <stdlib.h>
@@ -24,10 +25,12 @@ namespace ap {
       void SetParameterMapFromFile(string parameter_map_file);
       void SetParameterMapFromTemplate(string parameter_map_template);
       void GetTransformationMatrix();
-      void ShowImage();
+      void ShowFixedImage(string window_title="Fixed image");
+      void ShowMovingImage(string window_title="Moving image");
+      void ShowRegisteredImage(string window_title="Registered image");
       void SetFilenameLog(string filename);
-      void LogToFile(bool on);
-      void LogToConsole(bool on);
+      void LogToFile(bool on=true);
+      void LogToConsole(bool on=true);
       void ExecuteRegister();
       ~SimpleRegister();
 
