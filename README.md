@@ -23,5 +23,5 @@ Options:
 For the tests it has been used [Testing Datasets](http://www.insight-journal.org/rire/download_data.php) from [Insight Journal Foundation](http://www.insight-journal.org/). 
 The following figure shows a simple example of the application execution.
 
-<p align="center"><img src="img/simple_register_output.png" width="400"></p>
+<p align="center"><img src="img/simple_register_output.png" width="700"></p>
 
