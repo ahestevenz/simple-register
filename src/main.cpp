@@ -1,4 +1,4 @@
-#include "apSimpleRegister.hpp"
+#include "../inc/apSimpleRegister.hpp"
 #include <QCommandLineParser>
 
 using namespace ap;

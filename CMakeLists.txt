@@ -5,7 +5,7 @@ set(SimpleITK_DIR /opt/SimpleElastix/build/SimpleITK-build)
 set(ITK_DIR /opt/SimpleElastix/build/ITK-build)
 set(CMAKE_CXX_FLAGS "-fPIC")
 
-set(simpleregister_SRCS apSimpleRegister.cpp main.cpp utils/apExceptions.cpp)
+set(simpleregister_SRCS src/apSimpleRegister.cpp src/main.cpp src/apExceptions.cpp)
 
 if( NOT SimpleITK_SOURCE_DIR )
   find_package( SimpleITK REQUIRED )
@@ -32,12 +32,15 @@ find_package(OpenCV)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Core REQUIRED)
 
+add_subdirectory(inc)
+add_subdirectory(src)
+
 include_directories(${Qt5Widgets_INCLUDE_DIRS})
 include_directories(${Qt5Core_INCLUDE_DIRS})
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-add_subdirectory(utils/)
 add_executable(simpleregister ${simpleregister_SRCS})
 target_link_libraries( simpleregister ${SimpleITK_LIBRARIES} ${Qt5Core_LIBRARIES} ${OpenCV_LIBS})
 install(TARGETS simpleregister RUNTIME DESTINATION bin)
+
 
