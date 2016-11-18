@@ -2,7 +2,7 @@
 // Metric: Normalized Mutual Information
 // Interpolator: NearestNeighbor
 // Transformation: Rigid
-// Optimizer: StandartGradientDescent
+// Optimizer: StandardGradientDescent
 //
 // C-style comments: //
 
@@ -45,7 +45,7 @@
 (MovingImagePyramid "MovingRecursiveImagePyramid")
 
 // The following components are most important:
-(Optimizer "StandartGradientDescent")
+(Optimizer "StandardGradientDescent")
 (Transform "EulerTransform")
 (Metric "NormalizedMutualInformation")
 (ShowExactMetricValue true)

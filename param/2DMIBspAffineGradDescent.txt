@@ -2,7 +2,7 @@
 // Metric: Mutual Information
 // Interpolator: B-spline
 // Transformation: Affine
-// Optimizer: StandartGradientDescent
+// Optimizer: StandardGradientDescent
 //
 // C-style comments: //
 
@@ -45,7 +45,7 @@
 (MovingImagePyramid "MovingRecursiveImagePyramid")
 
 // The following components are most important:
-(Optimizer "StandartGradientDescent")
+(Optimizer "StandardGradientDescent")
 (Transform "AffineTransform")
 (Metric "AdvancedMattesMutualInformation")
 (ShowExactMetricValue true)
