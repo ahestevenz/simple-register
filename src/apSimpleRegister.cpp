@@ -1,4 +1,4 @@
-#include "apSimpleRegister.hpp"
+#include "../inc/apSimpleRegister.hpp"
 
 using namespace ap;
 
@@ -24,8 +24,8 @@ SimpleRegister::parameter_map_code SimpleRegister::GetParameterMapTemplateString
 
 void SimpleRegister::GetImages(string fixed, string moving)
 {
-  fixedReader->SetFileName(pathToImages+"/"+fixed);
-  movingReader->SetFileName(pathToImages+"/"+moving);  
+  fixedReader->SetFileName( pathToImages+"/"+fixed );
+  movingReader->SetFileName( pathToImages+"/"+moving );  
   elastix->SetMovingImage( movingReader->Execute() );
   elastix->SetFixedImage( fixedReader->Execute() );  
 }
@@ -99,8 +99,14 @@ void SimpleRegister::ShowRegisteredImage(string window_title)
 
 void SimpleRegister::GetTransformationMatrix()
 {
+  elastix->Execute();
+}
+
+void SimpleRegister::GetMetricValue()
+{
   //TODO: Complete this method
 }
+
 
 void SimpleRegister::SetFilenameLog(string filename)
 {   

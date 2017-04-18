@@ -25,6 +25,7 @@ namespace ap {
       void SetParameterMapFromFile(string parameter_map_file);
       void SetParameterMapFromTemplate(string parameter_map_template);
       void GetTransformationMatrix();
+      void GetMetricValue();
       void ShowFixedImage(string window_title="Fixed image");
       void ShowMovingImage(string window_title="Moving image");
       void ShowRegisteredImage(string window_title="Registered image");

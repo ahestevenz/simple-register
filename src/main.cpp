@@ -1,4 +1,4 @@
-#include "apSimpleRegister.hpp"
+#include "../inc/apSimpleRegister.hpp"
 #include <QCommandLineParser>
 
 using namespace ap;
@@ -6,7 +6,7 @@ using namespace ap;
 
 int main ( int argc, char* argv[] ) {
 
-  QCoreApplication arg(argc, argv);
+    QCoreApplication arg(argc, argv);
     QCoreApplication::setApplicationName(argv[0]);
     QCoreApplication::setApplicationVersion("0.1");
     QCommandLineParser parser;
